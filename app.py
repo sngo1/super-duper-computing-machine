@@ -58,7 +58,7 @@ def authentification():
 @app.route("/logout")
 def logout():
     # End the session
-    session.pop()
+    session.pop("username")
     # Render Login Page
     return render_template("login.html",
                             msg = "Logged out!")
