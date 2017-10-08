@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <h2 align="center"> Portal to Dark Web </h2>
+    <!-- If there is an error/maintenance message to display, do so. -->
+    {% if msg != "" %}
+    <h3> {{ msg }} </h3>
+    {% endif %}
+    <div align="center"><form action="/auth" method="POST">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
+      <input type="submit" name="loginPage">
+    </form></div>
+  </body>
+</html>
