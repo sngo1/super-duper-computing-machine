@@ -1,7 +1,7 @@
 # Team Magicians
 # Samantha Ngo, Carol Pan
 # SoftDev -- pd7
-# hw07 -- Do I know you?
+# hw08 -- Do I know you? (pt2)
 # 2017-10-06
 
 # Import all necessities
@@ -58,7 +58,7 @@ def authentification():
 @app.route("/logout")
 def logout():
     # End the session
-    session["Jeff"] = ""
+    session.pop()
     # Render Login Page
     return render_template("login.html",
                             msg = "Logged out!")
