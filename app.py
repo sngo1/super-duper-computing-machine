@@ -25,8 +25,7 @@ app.secret_key = os.urandom(32)
 @app.route("/")
 def loginPage():
     if "username" in session:
-        print "run loginMethods.loggedIn(session['username'])"
-        return loginMethods.loggedIn(session["username"])
+        return redirect(url_for("welcome"))     
     else:
         print "loginMethods.login('')"
         return loginMethods.login("")
@@ -47,8 +46,8 @@ def authentification():
         # ...render the welcome page by redirecting to login page
         # Login page will recognize that a session is open, so it'll
         # render the welcome page.
-        print "URL FOR:", url_for("loginPage")
-        return redirect(url_for("loginPage"))
+        print "URL FOR:", url_for("welcome")
+        return redirect(url_for("welcome"))
     # Otherwise, render the login page(again) with an error message.
     else:
         return loginMethods.login("Incorrect username or password")
@@ -62,6 +61,14 @@ def logout():
     # Render Login Page
     return loginMethods.login("Logged out!")
 
+@app.route("/welcome")
+def welcome():
+    if "username" in session:
+        print "run loginMethods.loggedIn(session['username'])"
+        return loginMethods.loggedIn(session["username"])
+    else:
+        return redirect(url_for("loginPage"))
+    
 if __name__ == "__main__":
     app.debug = True
     app.run()
