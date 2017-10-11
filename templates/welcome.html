@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Welcome</title>
-  </head>
-  <body style="background-color:black;" align="center"><font color="white">
-      <h1> Welcome {{ username }}, to the dark web! </h1><br>
-        Brought to you by...
-	<br><br>
-	<img src="https://images.fineartamerica.com/images-medium-large-5/broken-light-bulb-sketch-conor-obrien.jpg" alt="It's too dark to see.">
-        <br>
-        <a href="/logout">Logout</a>
-  </body></font>
-</html>
+{% extends "base.html"%}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block body_one %}
+<body style="background-color:black;" align="center"><font color="white">
+{% endblock %}
+
+{% block content %}
+<h1> Welcome {{ username }}, to the dark web! </h1><br>
+Brought to you by...
+<br><br>
+<img src="https://images.fineartamerica.com/images-medium-large-5/broken-light-bulb-sketch-conor-obrien.jpg" alt="It's too dark to see.">
+<br>
+<a href="/logout">Logout</a>
+{% endblock %}
+
+{% block body_two%}
+</body></font>
+{% endblock %}
